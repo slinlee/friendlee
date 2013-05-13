@@ -13,7 +13,7 @@ if (Meteor.isClient) {
 
     Template.friendlist.selected_timeMet = function () {
      var friend = Friends.findOne(Session.get("selected_friend"));
-     if(friend.timeMet && false) {
+     if(friend.timeMet) {
        return friend && friend.timeMet.toDateString();
      } else {
       return '';
