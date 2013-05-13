@@ -1,0 +1,19 @@
+{
+  "meteor": {
+    "git": "https://github.com/meteor/meteor.git",
+    "branch": "master",
+    "commit": "bfe4b72ebec4367eaddcdf0887fcf5e649d9dcb8"
+  },
+  "dependencies": {
+    "basePackages": {
+      "bootstrap-customizable": {}
+    },
+    "packages": {
+      "bootstrap-customizable": {
+        "git": "https://github.com/tomconnors/meteor-bootstrap-less",
+        "tag": "v0.0.3",
+        "commit": "fed1707912a2ba4189417267274f69f567770e61"
+      }
+    }
+  }
+}
