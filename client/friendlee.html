@@ -1,0 +1,41 @@
+<head>
+    <title>FriendLee</title>
+</head>
+
+<body>
+    <div class="container">
+        {{> hello}}
+    </div>
+    {{> footer}}
+</body>
+
+<template name="hello">
+    <h1>Welcome to FriendLee <small>Where we help you be Friendly!</small></h1>
+    <div class="row"> 
+    <div class="span6">
+    <strong>Start by creating an account</strong>
+        {{loginButtons}}
+    </div>
+</div>
+<div class="row">
+    <div class="span4">
+    <form>
+        <label for="name">
+            <strong>Search for or Add a Friend's name here</strong>
+        </label>
+            <input type="text" id="name">
+            </input>
+
+    </form>
+
+    </div>
+</div>
+
+</template>
+
+<template name="footer">
+    <footer class="container">
+
+    <p class="muted">&copy; 2013 - Made with the best intentions by <a href="http://www.slinlee.com">Slin Lee</a></p>
+    </footer>
+</template>
