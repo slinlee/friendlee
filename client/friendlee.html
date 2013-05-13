@@ -48,10 +48,10 @@
         <div class="span6">
             {{#if selected_name}}
             <div class="details animated bounceInDown">
-                <div class="name"><p>{{selected_name}} {{#if selected_timeMet}}- You last met {{selected_timeMet}}{{/if}}</p></div>
-                <p class="form-horizontal"><input type="date" name="dateMet" class="dateMetCal"> <input type="button" class="btn met" value="Set date"></p>
+                <div><p><span class="name">{{selected_name}}</span> {{#if selected_timeMet}}<br><span class="lastmetmsg">You last met {{selected_timeMet}}{{/if}}</p></div>
+                <p class="form-horizontal"><input type="date" name="dateMet" class="dateMetCal"> <input type="button" class="btn btn-primary met" value="Set date"></p>
                 <p>
-                    <input type="button" class="btn  metToday" value="Met Friend Today"> <input type="button" class="btn btn-link remove muted" value="Remove from List"></p>
+                    <input type="button" class="btn  metToday" value="Met Friend Today"> <input type="button" class="muted btn btn-link remove" value="Remove from List"></p>
             </div>
             {{/if}}
 
