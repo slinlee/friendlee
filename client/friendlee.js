@@ -3,10 +3,11 @@ Friends = new Meteor.Collection("friends");
 if (Meteor.isClient) {
   Meteor.startup(function () {
     Session.set("searchFilter", {});
+    Session.set("sortOrder", {timeMet: -1, name: 1});
   });
 
   Template.friendlist.friends = function () {
-    return Friends.find(Session.get("searchFilter"), {sort: {timeMet: 1, name: 1}});
+    return Friends.find(Session.get("searchFilter"), Session.get("sortOrder"));
 
   };
 
@@ -71,6 +72,7 @@ if (Meteor.isClient) {
     },
     'keyup #addfriend': function () {
         Session.set("searchFilter", {name:{'$regex':$('#name').val(), $options: 'i'}});
+        Session.set("selected_friend", Friends.findOne(Session.get("searchFilter"), Session.get("sortOrder") ));
     }
   })
 
