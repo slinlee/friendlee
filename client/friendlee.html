@@ -46,7 +46,9 @@
         {{#if selected_name}}
         <div class="details">
             <div class="name"><p>{{selected_name}} {{#if selected_timeMet}}- You last met {{selected_timeMet}}{{/if}}</p></div>
-            <p><input type="button" class="btn btn-primary met" value="Met Friend Today"> <input type="button" class="btn btn-link remove" value="Delete Friend"></p>
+            <p class="form-horizontal"><input type="date" name="dateMet" class="dateMetCal"> <input type="button" class="btn met" value="Set date"></p>
+            <p>
+                <input type="button" class="btn  metToday" value="Met Friend Today"> <input type="button" class="btn btn-link remove" value="Remove from List"></p>
         </div>
         {{/if}}
 
@@ -59,7 +61,7 @@
 
 <template name="friend">
     <div class="friend {{selected}} row">
-        <div class="name">{{name}}</div>
+        <div class="name span3">{{name}}</div>
         <div class="timeSince">{{timeago}}</div>
     </div>
 </template>

@@ -13,7 +13,7 @@ if (Meteor.isClient) {
 
     Template.friendlist.selected_timeMet = function () {
      var friend = Friends.findOne(Session.get("selected_friend"));
-     if(friend.timeMet) {
+     if(friend.timeMet && false) {
        return friend && friend.timeMet.toDateString();
      } else {
       return '';
@@ -29,8 +29,12 @@ if (Meteor.isClient) {
   }
 
   Template.friendlist.events({
-    'click input.met': function () {
-      Friends.update(Session.get("selected_friend"), {$set: {timeMet: (new Date()).toDateString()}});
+    'click input.metToday': function () {
+      Friends.update(Session.get("selected_friend"), {$set: {timeMet: (new Date())}});
+    },
+
+    'click input.met' : function () {
+      Friends.update(Session.get("selected_friend"), {$set: {timeMet: new Date($('.dateMetCal').val())}});
     },
 
     'click input.remove' : function () {
