@@ -1,13 +1,40 @@
 <head>
-  <title>friendlee</title>
+    <title>friendLee</title>
 </head>
 
 <body>
-  {{> hello}}
+    <div class="container">
+        {{> hello}}
+    </div>
+    {{> footer}}
 </body>
 
 <template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+    <h1>Welcome to FriendLee <small>Where we help you be Friendly!</small></h1>
+    <div class="row"> 
+    <div class="span6">
+    <h2>Start by creating an account</h2>
+        {{loginButtons}}
+    </div>
+</div>
+<div class="row">
+    <div class="span4">
+    <form>
+        <label for="name">
+            Search for or Add a Friend's name here
+        </label>
+            <input type="text" id="name">
+            </input>
+
+    </form>
+
+    </div>
+</div>
+
+</template>
+
+<template name="footer">
+    <footer class="container">
+    <p>&copy; 2013 - <a href="http://www.slinlee.com">Slin Lee</a></p>
+    </footer>
 </template>
