@@ -38,7 +38,10 @@ if (Meteor.isClient) {
     },
 
     'click input.remove' : function () {
-      Friends.remove(Session.get("selected_friend"));
+      $('.selected').addClass('animated hinge');
+      var timeout = window.setTimeout(function () {
+          Friends.remove(Session.get("selected_friend"))
+        }, 2000);
     }
   });
 
