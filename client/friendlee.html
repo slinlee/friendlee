@@ -16,7 +16,7 @@
 
 
 <template name="header">
-    <h1 class="appTitle"><i class="icon icon-coffee sec"></i> Friend<span class="sec">Lee</span></h1>
+    <h1 class="appTitle"><i class="icon icon-coffee sec"></i> <span class="title">Friend<span class="sec">Lee</span></span></h1>
 </template>
 
 <template name="search">
@@ -41,7 +41,7 @@
             {{#each friends}}
                 {{> friend}}
                 {{else}}
-                <p>Add some friends</p>
+                <p class="none">Add some friends</p>
             {{/each}}
         </div>
 
