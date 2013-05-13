@@ -1,14 +1,48 @@
 /* CSS declarations go here */
 
+@brandMain: #FF9646;
+@brandSecondary: #38ACB5;
+@brandLink: #FF3A6A;
+@brandLinkVisited: #B8B9C4;
+@brandTertiary: #B1C953;
+
 .body {
 
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #333;
 
 }
+
+.btn-primary {
+    background-color: @brandLink;
+}
+
+.appTitle {
+    font-size: 72pt;
+    color: @brandMain;
+    letter-spacing: -10px;
+
+    .sec {
+        color: @brandSecondary;
+    }
+}
+
 .friend.selected {
     background-color: lightblue;
     box-shadow: 2px 2px 8px #CCC;
+}
+
+#addfriend {
+    input {
+        height: 30px;
+        font-size: 1.75em;
+        padding: 4px 12px;
+
+        &.btn {
+            height: 40px;
+        }
+    }
+
 }
 
 .details .name,
@@ -22,20 +56,18 @@
 
 
 .details {
-    border-top: 1px dotted #CCC;
-    padding-top: 20px;
-    margin-top: 15px;
+
 }
 
 footer {
-    margin-top: 50px;
-    width: 1000%;
-    background-color: #666;
-    padding: 50px;
+    margin: 50px 0px 0px 0px;
+    width: 100%;
+    background-color: @brandTertiary;
+    padding: 50px 0px 100px 0px;
     bottom: 0px;
     color: white;
 
     a {
-        color: #CCC;
+        color: @brandSecondary;
     }
 }

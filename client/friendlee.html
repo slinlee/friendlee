@@ -16,17 +16,19 @@
 
 
 <template name="header">
-    <h1>Welcome to FriendLee <small>Where we help you be Friendly!</small></h1>
+    <h1 class="appTitle"><i class="icon icon-coffee sec"></i> Friend<span class="sec">Lee</span></h1>
 </template>
 
 <template name="search">
 
     <div class="row">
-        <form class="form-horizontal" id="addfriend">
-            <input type="text" id="name"></input>
-            <input type="button" id="addfriendbtn" value="Add Friend" class="btn btn-primary"></input>
+        <div class="span6">
+            <form class="form-horizontal" id="addfriend">
+                <input type="text" id="name" class="span4" autocomplete="off"></input>
+                <input type="button" id="addfriendbtn" value="Add Friend" class="btn btn-primary span2"></input>
 
-        </form>
+            </form>
+        </div>
     </div>
 
 </template>
@@ -42,23 +44,22 @@
                 <p>Add some friends</p>
             {{/each}}
         </div>
-    </div>
 
-    <div class="row">
-        {{#if selected_name}}
-        <div class="details animated bounceInDown">
-            <div class="name"><p>{{selected_name}} {{#if selected_timeMet}}- You last met {{selected_timeMet}}{{/if}}</p></div>
-            <p class="form-horizontal"><input type="date" name="dateMet" class="dateMetCal"> <input type="button" class="btn met" value="Set date"></p>
-            <p>
-                <input type="button" class="btn  metToday" value="Met Friend Today"> <input type="button" class="btn btn-link remove" value="Remove from List"></p>
+        <div class="span6">
+            {{#if selected_name}}
+            <div class="details animated bounceInDown">
+                <div class="name"><p>{{selected_name}} {{#if selected_timeMet}}- You last met {{selected_timeMet}}{{/if}}</p></div>
+                <p class="form-horizontal"><input type="date" name="dateMet" class="dateMetCal"> <input type="button" class="btn met" value="Set date"></p>
+                <p>
+                    <input type="button" class="btn  metToday" value="Met Friend Today"> <input type="button" class="btn btn-link remove muted" value="Remove from List"></p>
+            </div>
+            {{/if}}
+
+            {{#unless selected_name}}
+            <div class="none">Click a friend to select</div>
+            {{/unless}}
         </div>
-        {{/if}}
-
-        {{#unless selected_name}}
-        <div class="none">Click a friend to select</div>
-        {{/unless}}
     </div>
-
 </template>
 
 <template name="friend">
@@ -71,7 +72,12 @@
 
 <template name="footer">
     <footer>
-
-        <p>&copy; 2013 - Made with the best intentions by <a href="http://www.slinlee.com">Slin Lee</a></p>
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <p>&copy; 2013 - Made with the best intentions by <a href="http://www.slinlee.com">Slin Lee</a></p>
+                </div>
+            </div>
+        </div>
     </footer>
 </template>
