@@ -6,9 +6,10 @@
 autopublish
 insecure
 preserve-inputs
-bootstrap
 less
 jquery
 handlebars
 accounts-facebook
 accounts-ui
+font-awesome
+bootstrap-customizable
