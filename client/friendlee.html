@@ -4,38 +4,70 @@
 
 <body>
     <div class="container">
-        {{> hello}}
+        {{> header}}
+
+        {{> search}}
+
+        {{> friendlist}}
+
     </div>
     {{> footer}}
 </body>
 
-<template name="hello">
+
+<template name="header">
     <h1>Welcome to FriendLee <small>Where we help you be Friendly!</small></h1>
-    <div class="row"> 
-    <div class="span6">
-    <strong>Start by creating an account</strong>
-        {{loginButtons}}
-    </div>
-</div>
-<div class="row">
-    <div class="span4">
-    <form>
-        <label for="name">
-            <strong>Search for or Add a Friend's name here</strong>
-        </label>
-            <input type="text" id="name">
-            </input>
+</template>
 
-    </form>
+<template name="search">
 
+    <div class="row">
+        <form class="form-horizontal" id="addfriend">
+            <input type="text" id="name"></input>
+            <input type="button" id="addfriendbtn" value="Add Friend" class="btn btn-primary"></input>
+
+        </form>
     </div>
-</div>
 
 </template>
 
-<template name="footer">
-    <footer class="container">
 
-    <p class="muted">&copy; 2013 - Made with the best intentions by <a href="http://www.slinlee.com">Slin Lee</a></p>
+
+<template name="friendlist">
+    <div class="row">
+        <div class="friendlist span6">
+            {{#each friends}}
+                {{> friend}}
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="row">
+        {{#if selected_name}}
+        <div class="details">
+            <div class="name"><p>{{selected_name}} {{#if selected_timeMet}}- You last met {{selected_timeMet}}{{/if}}</p></div>
+            <p><input type="button" class="btn btn-primary met" value="Met Friend Today"> <input type="button" class="btn btn-link remove" value="Delete Friend"></p>
+        </div>
+        {{/if}}
+
+        {{#unless selected_name}}
+        <div class="none">Click a friend to select</div>
+        {{/unless}}
+    </div>
+
+</template>
+
+<template name="friend">
+    <div class="friend {{selected}} row">
+        <div class="name">{{name}}</div>
+        <div class="timeSince">{{timeago}}</div>
+    </div>
+</template>
+
+
+<template name="footer">
+    <footer>
+
+        <p>&copy; 2013 - Made with the best intentions by <a href="http://www.slinlee.com">Slin Lee</a></p>
     </footer>
 </template>
