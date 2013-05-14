@@ -21,7 +21,7 @@
 <template name="header">
     <div class="row">
         <div class="span9">
-            <h1 class="appTitle animated rotateInDownLeft"><i class="icon icon-coffee sec"></i> <span class="title">Friend<span class="sec">Lee</span></span></h1>
+            <h1 class="appTitle animated fadeIn"><i class="icon icon-coffee sec"></i> <span class="title">Friend<span class="sec">Lee</span></span></h1>
         </div>
 
         <div class="span3">
@@ -66,7 +66,26 @@
                 <div><p><span class="name animated bounce">{{selected_name}}</span> {{#if selected_timeMet}}<br><span class="lastmetmsg">You last met {{selected_timeMet}}{{/if}}</p></div>
                 <p class="form-horizontal"><input type="date" name="dateMet" class="dateMetCal"> <input type="button" class="btn btn-primary met" value="Set date"></p>
                 <p>
-                    <input type="button" class="btn  metToday" value="Met Today"> <input type="button" class="muted btn btn-link remove" value="Remove from List"></p>
+
+                    <div class="btn-group">
+  <button class="btn btn-primary btn-large metToday"><i class="icon icon-ok"></i> Met Today</button>
+  <button class="btn btn-primary btn-large dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <!-- dropdown menu links -->
+  </ul>
+</div>
+                </p>
+                <div>
+                    <p> Previous</p>
+                    {{#each selected_datesMet}}
+                    <p class="previousMeeting">{{this}}</p>
+                    {{/each}}
+                </div>
+                <div>
+                    <a class="muted remove"><i class="icon icon-trash"></i> Remove from list</a>
+                </div>
             </div>
             {{/if}}
 

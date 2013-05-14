@@ -19,7 +19,7 @@ if (Meteor.isClient) {
 
     Template.friendlist.selected_timeMet = function () {
      var friend = Friends.findOne(Session.get("selected_friend"));
-     if(friend.datesmet.length > 0) {
+     if (friend.datesmet.length > 0) {
         if(friend.datesmet.max().isToday()) {
           return 'Today';
         }
@@ -27,6 +27,17 @@ if (Meteor.isClient) {
      } else {
       return '';
      }
+   };
+
+   Template.friendlist.selected_datesMet = function () {
+      var friend = Friends.findOne(Session.get("selected_friend"));
+      if (friend.datesmet.length > 0) {
+        // return friend.datesmet.each(function () { this.short() });
+        // friend.datesmet.each( function (key, value) { console.log("key: " + key.short()); return key.short(); })
+        return friend.datesmet.map('short');
+      } else {
+        return '';
+      }
    };
 
    Template.friend.selected = function () {
