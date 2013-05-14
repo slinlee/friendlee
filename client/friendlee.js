@@ -40,8 +40,16 @@ if (Meteor.isClient) {
       }
    };
 
+   Template.friendlist.rendered = function () {
+      $('.datePickerBtn').datepicker('show')
+        .on('changeDate', function (event) {
+          Meteor.call('meetFriend', Session.get("selected_friend"), Date.create(event.date.valueOf()));
+          Session.set("searchFilter", {});
+        });
+   };
+
    Template.friend.selected = function () {
-     return Session.equals("selected_friend", this._id) ? "selected animated wiggle" : '';
+     return Session.equals("selected_friend", this._id) ? "selected animated pulse" : '';
   };
 
   Template.friend.timeago = function () {
@@ -57,7 +65,7 @@ if (Meteor.isClient) {
   }
 
   Template.friendlist.events({
-    'click input.metToday': function () {
+    'click button.metToday': function () {
       // Friends.update(Session.get("selected_friend"), {$set: {timeMet: (new Date())}});
       Meteor.call('meetFriend', Session.get("selected_friend"), Date.create('today'));
       Session.set("searchFilter", {});

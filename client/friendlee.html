@@ -64,18 +64,15 @@
             {{#if selected_name}}
             <div class="details animated bounceInDown">
                 <div><p><span class="name animated bounce">{{selected_name}}</span> {{#if selected_timeMet}}<br><span class="lastmetmsg">You last met {{selected_timeMet}}{{/if}}</p></div>
-                <p class="form-horizontal"><input type="date" name="dateMet" class="dateMetCal"> <input type="button" class="btn btn-primary met" value="Set date"></p>
+                <!-- <p class="form-horizontal"><input type="date" name="dateMet" class="dateMetCal"> <input type="button" class="btn btn-primary met" value="Set date"></p> -->
                 <p>
-
                     <div class="btn-group">
-  <button class="btn btn-primary btn-large metToday"><i class="icon icon-ok"></i> Met Today</button>
-  <button class="btn btn-primary btn-large dropdown-toggle" data-toggle="dropdown">
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <!-- dropdown menu links -->
-  </ul>
-</div>
+                        <button class="btn btn-primary btn-large metToday"> Met Today</button>
+                        <button class="btn btn-primary btn-large  datePickerBtn" data-date="12-02-2012">
+                            <i class="icon icon-chevron-down"></i>
+                        </button>
+
+                    </div>
                 </p>
                 <div>
                     <p> Previous</p>
