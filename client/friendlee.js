@@ -30,7 +30,7 @@ if (Meteor.isClient) {
    };
 
    Template.friend.selected = function () {
-     return Session.equals("selected_friend", this._id) ? "selected" : '';
+     return Session.equals("selected_friend", this._id) ? "selected animated wiggle" : '';
   };
 
   Template.friend.timeago = function () {
@@ -49,17 +49,20 @@ if (Meteor.isClient) {
     'click input.metToday': function () {
       // Friends.update(Session.get("selected_friend"), {$set: {timeMet: (new Date())}});
       Meteor.call('meetFriend', Session.get("selected_friend"), Date.create('today'));
+      Session.set("searchFilter", {});
     },
 
     'click input.met' : function () {
       // Friends.update(Session.get("selected_friend"), {$set: {timeMet: new Date($('.dateMetCal').val())}});
       Meteor.call('meetFriend', Session.get("selected_friend"), Date.create($('.dateMetCal').val()));
+      Session.set("searchFilter", {});
     },
 
     'click input.remove' : function () {
       $('.selected').addClass('animated hinge');
       var timeout = window.setTimeout(function () {
-          Friends.remove(Session.get("selected_friend"))
+          Friends.remove(Session.get("selected_friend"));
+          Session.set("searchFilter", {});
         }, 2000);
     }
   });
@@ -78,8 +81,8 @@ if (Meteor.isClient) {
           name: $('#name').val()
          }, function (error, friend) {
           if (! error) {
+            // $('#name').val('');
             Session.set("selected_friend", friend);
-            $('#name').val('');
 
           }
          });
@@ -94,8 +97,8 @@ if (Meteor.isClient) {
           name: $('#name').val()
          }, function (error, friend) {
           if (! error) {
+            // $('#name').val('');
             Session.set("selected_friend", friend);
-            $('#name').val('');
 
           }
          });

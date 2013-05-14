@@ -21,7 +21,7 @@
 <template name="header">
     <div class="row">
         <div class="span9">
-            <h1 class="appTitle"><i class="icon icon-coffee sec"></i> <span class="title">Friend<span class="sec">Lee</span></span></h1>
+            <h1 class="appTitle animated rotateInDownLeft"><i class="icon icon-coffee sec"></i> <span class="title">Friend<span class="sec">Lee</span></span></h1>
         </div>
 
         <div class="span3">
@@ -63,7 +63,7 @@
         <div class="span6">
             {{#if selected_name}}
             <div class="details animated bounceInDown">
-                <div><p><span class="name">{{selected_name}}</span> {{#if selected_timeMet}}<br><span class="lastmetmsg">You last met {{selected_timeMet}}{{/if}}</p></div>
+                <div><p><span class="name animated bounce">{{selected_name}}</span> {{#if selected_timeMet}}<br><span class="lastmetmsg">You last met {{selected_timeMet}}{{/if}}</p></div>
                 <p class="form-horizontal"><input type="date" name="dateMet" class="dateMetCal"> <input type="button" class="btn btn-primary met" value="Set date"></p>
                 <p>
                     <input type="button" class="btn  metToday" value="Met Today"> <input type="button" class="muted btn btn-link remove" value="Remove from List"></p>
@@ -91,7 +91,7 @@
                 {{loginButtons}}
             </div>
             <div class="span7">
-                <p class="logincta"><i class="icon icon-arrow-left"></i> What are you waiting for?</p>
+                <p class="logincta animated lightSpeedIn"><i class="icon icon-arrow-left"></i> What are you waiting for?</p>
             </div>
         </div>
     </div>
