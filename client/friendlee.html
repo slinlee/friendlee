@@ -6,10 +6,13 @@
     <div class="container">
         {{> header}}
 
+        {{#if currentUser }}
         {{> search}}
 
         {{> friendlist}}
-
+        {{else}}
+        {{> anonymousIntro}}
+        {{/if}}
     </div>
     {{> footer}}
 </body>
@@ -22,7 +25,9 @@
         </div>
 
         <div class="span3">
+            {{#if currentUser}}
             {{loginButtons align="right"}}
+            {{/if}}
         </div>
 
     </div>
@@ -61,7 +66,7 @@
                 <div><p><span class="name">{{selected_name}}</span> {{#if selected_timeMet}}<br><span class="lastmetmsg">You last met {{selected_timeMet}}{{/if}}</p></div>
                 <p class="form-horizontal"><input type="date" name="dateMet" class="dateMetCal"> <input type="button" class="btn btn-primary met" value="Set date"></p>
                 <p>
-                    <input type="button" class="btn  metToday" value="Met Friend Today"> <input type="button" class="muted btn btn-link remove" value="Remove from List"></p>
+                    <input type="button" class="btn  metToday" value="Met Today"> <input type="button" class="muted btn btn-link remove" value="Remove from List"></p>
             </div>
             {{/if}}
 
@@ -79,6 +84,19 @@
     </div>
 </template>
 
+<template name="anonymousIntro">
+    <div class="anonymousIntro">
+        <div class="row">
+            <div class="span3">
+                {{loginButtons}}
+            </div>
+            <div class="span7">
+                <p class="logincta"><i class="icon icon-arrow-left"></i> What are you waiting for?</p>
+            </div>
+        </div>
+    </div>
+
+</template>
 
 <template name="footer">
     <footer>
