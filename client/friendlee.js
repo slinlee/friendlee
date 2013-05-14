@@ -77,7 +77,7 @@ if (Meteor.isClient) {
       Session.set("searchFilter", {});
     },
 
-    'click input.remove' : function () {
+    'click a.remove' : function () {
       $('.selected').addClass('animated hinge');
       var timeout = window.setTimeout(function () {
           Friends.remove(Session.get("selected_friend"));
