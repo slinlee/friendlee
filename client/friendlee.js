@@ -68,12 +68,14 @@ if (Meteor.isClient) {
     'click button.metToday': function () {
       // Friends.update(Session.get("selected_friend"), {$set: {timeMet: (new Date())}});
       Meteor.call('meetFriend', Session.get("selected_friend"), Date.create('today'));
+      mixpanel.track("Tracked met friend today");
       Session.set("searchFilter", {});
     },
 
     'click input.met' : function () {
       // Friends.update(Session.get("selected_friend"), {$set: {timeMet: new Date($('.dateMetCal').val())}});
       Meteor.call('meetFriend', Session.get("selected_friend"), Date.create($('.dateMetCal').val()));
+      mixpanel.track("Tracked met friend");
       Session.set("searchFilter", {});
     },
 
@@ -81,6 +83,7 @@ if (Meteor.isClient) {
       $('.selected').addClass('animated hinge');
       var timeout = window.setTimeout(function () {
           Friends.remove(Session.get("selected_friend"));
+          mixpanel.track("Removed Friend");
           Session.set("searchFilter", {});
         }, 2000);
     }
@@ -88,6 +91,7 @@ if (Meteor.isClient) {
 
   Template.friend.events({
     'click': function () {
+      mixpanel.track("Selected Friend");
       Session.set("selected_friend", this._id);
     }
   });
@@ -101,6 +105,7 @@ if (Meteor.isClient) {
          }, function (error, friend) {
           if (! error) {
             // $('#name').val('');
+            mixpanel.track("Added Friend");
             Session.set("selected_friend", friend);
 
           }
@@ -117,6 +122,7 @@ if (Meteor.isClient) {
          }, function (error, friend) {
           if (! error) {
             // $('#name').val('');
+            mixpanel.track("Added friend");
             Session.set("selected_friend", friend);
 
           }
