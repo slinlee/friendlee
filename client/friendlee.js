@@ -1,9 +1,10 @@
-Friends = new Meteor.Collection("friends");
+// Friends = new Meteor.Collection("friends");
+Meteor.subscribe("friends");
 
 if (Meteor.isClient) {
   Meteor.startup(function () {
     Session.set("searchFilter", {});
-    Session.set("sortOrder", {sort: {timeMet: -1, name: 1}});
+    Session.set("sortOrder", {sort: {datesmet: -1, name: 1}});
   });
 
   Template.friendlist.friends = function () {
@@ -18,8 +19,11 @@ if (Meteor.isClient) {
 
     Template.friendlist.selected_timeMet = function () {
      var friend = Friends.findOne(Session.get("selected_friend"));
-     if(friend.timeMet) {
-       return friend && friend.timeMet.toDateString();
+     if(friend.datesmet.length > 0) {
+        if(friend.datesmet.max().isToday()) {
+          return 'Today';
+        }
+       return friend && friend.datesmet.max().short(); //debug
      } else {
       return '';
      }
@@ -30,16 +34,26 @@ if (Meteor.isClient) {
   };
 
   Template.friend.timeago = function () {
-    return humanized_time_span(this.timeMet);
+    if (this.datesmet.length == 0) {
+      return '';
+    } else if (this.datesmet.max().isToday()) {
+      return 'Today';
+    } else if (this.datesmet.max().isYesterday()) {
+      return 'Yesterday';
+    } else {
+      return humanized_time_span(this.datesmet.max());
+    }
   }
 
   Template.friendlist.events({
     'click input.metToday': function () {
-      Friends.update(Session.get("selected_friend"), {$set: {timeMet: (new Date())}});
+      // Friends.update(Session.get("selected_friend"), {$set: {timeMet: (new Date())}});
+      Meteor.call('meetFriend', Session.get("selected_friend"), Date.create('today'));
     },
 
     'click input.met' : function () {
-      Friends.update(Session.get("selected_friend"), {$set: {timeMet: new Date($('.dateMetCal').val())}});
+      // Friends.update(Session.get("selected_friend"), {$set: {timeMet: new Date($('.dateMetCal').val())}});
+      Meteor.call('meetFriend', Session.get("selected_friend"), Date.create($('.dateMetCal').val()));
     },
 
     'click input.remove' : function () {
@@ -59,15 +73,32 @@ if (Meteor.isClient) {
   Template.search.events({
     'click #addfriendbtn': function () {
       if ($('#name').val() !== '') {
-         Session.set("selected_friend", Friends.insert({name: $('#name').val()}));
-        $('#name').val('');
+         // Session.set("selected_friend", Friends.insert({name: $('#name').val()}));
+         Meteor.call('createFriend', {
+          name: $('#name').val()
+         }, function (error, friend) {
+          if (! error) {
+            Session.set("selected_friend", friend);
+            $('#name').val('');
+
+          }
+         });
       }
     },
     'submit #addfriend': function () {
       event.preventDefault();
       if ($('#name').val() !== '') {
-        Session.set("selected_friend", Friends.insert({name: $('#name').val()}));
-        $('#name').val('');
+        // Session.set("selected_friend", Friends.insert({name: $('#name').val()}));
+        // $('#name').val('');
+        Meteor.call('createFriend', {
+          name: $('#name').val()
+         }, function (error, friend) {
+          if (! error) {
+            Session.set("selected_friend", friend);
+            $('#name').val('');
+
+          }
+         });
       }
     },
     'keyup #addfriend': function () {
