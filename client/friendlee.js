@@ -122,7 +122,7 @@ if (Meteor.isClient) {
          }, function (error, friend) {
           if (! error) {
             // $('#name').val('');
-            mixpanel.track("Added friend");
+            mixpanel.track("Added Friend");
             Session.set("selected_friend", friend);
 
           }
@@ -140,7 +140,10 @@ if (Meteor.isClient) {
 }
 
 jQuery(document).ready(function() {
+  if(Meteor.userId()) {
+    mixpanel.identify(Meteor.userId());
 
+  }
 });
 
 
