@@ -3,7 +3,7 @@ Friends = new Meteor.Collection("friends");
 if (Meteor.isClient) {
   Meteor.startup(function () {
     Session.set("searchFilter", {});
-    Session.set("sortOrder", {timeMet: -1, name: 1});
+    Session.set("sortOrder", {sort: {timeMet: -1, name: 1}});
   });
 
   Template.friendlist.friends = function () {
