@@ -14,11 +14,27 @@ mixpanel.init("da76e166658e817e2d9dae5bebeb8cfb");</script><!-- end Mixpanel -->
         {{> search}}
 
         {{> friendlist}}
+        {{> loggingJS}}
         {{else}}
         {{> anonymousIntro}}
         {{/if}}
     </div>
     {{> footer}}
+    <script type="text/javascript">
+          var _cio = _cio || [];
+            (function() {
+                var a,b,c;a=function(f){return function(){_cio.push([f].
+                    concat(Array.prototype.slice.call(arguments,0)))}};b=["identify",
+                        "sidentify","track"];for(c=0;c<b.length;c++){_cio[b[c]]=a(b[c])};
+                                var t = document.createElement('script'),
+                                        s = document.getElementsByTagName('script')[0];
+                                            t.async = true;
+                                                t.id    = 'cio-tracker';
+                                                    t.setAttribute('data-site-id', 'ddd420424232406d9e5b');
+                                                        t.src = 'https://assets.customer.io/assets/track.js';
+                                                            s.parentNode.insertBefore(t, s);
+                                                              })();
+                                                          </script>
 </body>
 
 
@@ -129,3 +145,20 @@ mixpanel.init("da76e166658e817e2d9dae5bebeb8cfb");</script><!-- end Mixpanel -->
     </footer>
     <a href="https://mixpanel.com/f/partner"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics" /></a>
 </template>
+
+
+<template name="loggingJS">
+    <script>
+        mixpanel.identify(Meteor.userId());
+        console.log ("recording id");
+        _cio.identify({
+            // Required attributes
+            id: Meteor.userId(),           // Unique id for the currently signed in user in your application.
+            email: '', // Email of the currently signed in user.
+            created_on: ''
+        });
+
+    </script>
+
+</template>
+

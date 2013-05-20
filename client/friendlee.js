@@ -140,10 +140,11 @@ if (Meteor.isClient) {
 }
 
 jQuery(document).ready(function() {
-  if(Meteor.userId()) {
-    mixpanel.identify(Meteor.userId());
+  //if(Meteor.userId()) {
+   // mixpanel.identify(Meteor.userId());
+    //console.log("sending mixpanel identify");
 
-  }
+  //}
 });
 
 
