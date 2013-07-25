@@ -1,5 +1,9 @@
 {
-  "meteor": {},
+  "meteor": {
+    "git": "https://github.com/meteor/meteor.git",
+    "branch": "master",
+    "commit": "2e78d0d110443ac6fb9471e6be1c136f15f03fd2"
+  },
   "dependencies": {
     "basePackages": {
       "font-awesome": {},
