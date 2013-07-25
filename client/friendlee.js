@@ -44,6 +44,8 @@ if (Meteor.isClient) {
       $('.datePickerBtn').datepicker('show')
         .on('changeDate', function (event) {
           Meteor.call('meetFriend', Session.get("selected_friend"), Date.create(event.date.valueOf()));
+          $.ajax({url: 'http://morecowbell.meteor.com/ding?user=gqaou7G5E526zCzqk'});
+          mixpanel.track("Tracked met friend");
           Session.set("searchFilter", {});
         });
    };
@@ -69,6 +71,7 @@ if (Meteor.isClient) {
       // Friends.update(Session.get("selected_friend"), {$set: {timeMet: (new Date())}});
       Meteor.call('meetFriend', Session.get("selected_friend"), Date.create('today'));
       mixpanel.track("Tracked met friend today");
+      $.ajax({url: 'http://morecowbell.meteor.com/ding?user=gqaou7G5E526zCzqk'});
       Session.set("searchFilter", {});
     },
 
@@ -76,6 +79,7 @@ if (Meteor.isClient) {
       // Friends.update(Session.get("selected_friend"), {$set: {timeMet: new Date($('.dateMetCal').val())}});
       Meteor.call('meetFriend', Session.get("selected_friend"), Date.create($('.dateMetCal').val()));
       mixpanel.track("Tracked met friend");
+      // $.ajax({url: 'http://morecowbell.meteor.com/ding?user=gqaou7G5E526zCzqk'});
       Session.set("searchFilter", {});
     },
 
