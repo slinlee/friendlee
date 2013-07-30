@@ -70,7 +70,8 @@ if (Meteor.isClient) {
     'click button.metToday': function () {
       // Friends.update(Session.get("selected_friend"), {$set: {timeMet: (new Date())}});
       Meteor.call('meetFriend', Session.get("selected_friend"), Date.create('today'));
-      mixpanel.track("Tracked met friend today");
+      // mixpanel.track("Tracked met friend today");
+      mixpanel.track("Tracked met friend");
       $.ajax({url: 'http://morecowbell.meteor.com/ding?user=gqaou7G5E526zCzqk'});
       Session.set("searchFilter", {});
     },
@@ -144,11 +145,15 @@ if (Meteor.isClient) {
 }
 
 jQuery(document).ready(function() {
-  //if(Meteor.userId()) {
-   // mixpanel.identify(Meteor.userId());
-    //console.log("sending mixpanel identify");
-
-  //}
+  if(Meteor.userId()) {
+    mixpanel.identify(Meteor.userId());
+    console.log("sending mixpanel identify");
+    mixpanel.name_tag(Meteor.user().profile.name);
+    mixpanel.people.set({
+        "Name" : Meteor.user().profile.name,
+        "$last_login": new Date()
+    });
+  }
 });
 
 
