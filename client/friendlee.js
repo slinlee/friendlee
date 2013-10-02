@@ -34,7 +34,7 @@ if (Meteor.isClient) {
       if (friend.datesmet.length > 0) {
         // return friend.datesmet.each(function () { this.short() });
         // friend.datesmet.each( function (key, value) { console.log("key: " + key.short()); return key.short(); })
-        return friend.datesmet.map('short');
+        return friend.datesmet.map('short').sort();
       } else {
         return '';
       }

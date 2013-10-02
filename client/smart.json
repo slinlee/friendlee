@@ -1,5 +1,7 @@
 {
   "packages": {
-    "bootstrap-customizable": {}
+    "bootstrap-customizable": {},
+    "bootstrap-less": {},
+    "font-awesome": {}
   }
 }
