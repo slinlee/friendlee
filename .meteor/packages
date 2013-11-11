@@ -10,9 +10,7 @@ handlebars
 accounts-facebook
 accounts-ui
 sugar
-bootstrap-less
-standard-app-packages
+# standard-app-packages
 accounts-google
-bootstrap-less
 font-awesome
-browser-policy
+# browser-policy
