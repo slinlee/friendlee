@@ -1,0 +1,41 @@
+<template name="friendlist">
+    <div class="row">
+        <div class="friendlist span6">
+            {{#each friends}}
+                {{> friend}}
+                {{else}}
+                <p class="none">Add some friends</p>
+            {{/each}}
+        </div>
+
+        <div class="span6">
+            {{#if selected_name}}
+            <div class="details animated bounceInDown">
+                <div><p><span class="name animated bounce">{{selected_name}}</span> {{#if selected_timeMet}}<br><span class="lastmetmsg">You last met {{selected_timeMet}}{{/if}}</p></div>
+                <!-- <p class="form-horizontal"><input type="date" name="dateMet" class="dateMetCal"> <input type="button" class="btn btn-primary met" value="Set date"></p> -->
+                <p>
+                    <div class="btn-group">
+                        <button class="btn btn-primary btn-large metToday"> Met Today</button>
+                        <button class="btn btn-primary btn-large  datePickerBtn" data-date="">
+                            <i class="icon icon-large icon-calendar"></i> <i class="icon icon-chevron-down"></i></button>
+
+                    </div>
+                </p>
+                <div>
+                    <p> Previous</p>
+                    {{#each selected_datesMet}}
+                    <p class="previousMeeting">{{this}}</p>
+                    {{/each}}
+                </div>
+                <div>
+                    <a class="muted remove"><i class="icon icon-trash"></i> Remove from list</a>
+                </div>
+            </div>
+            {{/if}}
+
+            {{#unless selected_name}}
+            <div class="none"><i class="icon icon-arrow-left"></i> Who'd you meet today?</div>
+            {{/unless}}
+        </div>
+    </div>
+</template>

@@ -1,0 +1,18 @@
+<template name="header">
+    <div class="row">
+        <div class="span9">
+            <h1 class="appTitle animated fadeIn">
+                <i class="icon icon-coffee sec"></i>
+                <span class="title">Friend<span class="sec">Lee</span></span>
+            </h1>
+        </div>
+
+        <div class="span3">
+            {{#if currentUser}}
+            {{loginButtons align="right"}}
+            {{/if}}
+        </div>
+
+    </div>
+
+</template>
