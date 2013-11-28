@@ -1,6 +1,7 @@
 {
   "packages": {
     "sugar": {},
-    "font-awesome": {}
+    "font-awesome": {},
+    "bootstrap-less": {}
   }
 }

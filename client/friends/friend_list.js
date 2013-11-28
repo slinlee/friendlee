@@ -25,8 +25,8 @@ Template.friendlist.selected_datesMet = function () {
   var friend = Friends.findOne(Session.get("selected_friend"));
   if (friend.datesmet.length > 0) {
         // return friend.datesmet.each(function () { this.short() });
-        // friend.datesmet.each( function (key, value) { console.log("key: " + key.short()); return key.short(); })
-        return friend.datesmet.map('short').sort();
+        // friend.datesmet.each( function (key, value) { console.log("key: " + key.format('{Weekday} {Month} {dd}, {yyyy}')); return key.short(); })
+        return friend.datesmet.sort(function(a,b){return b-a}).map(function(n) { return n.format('{Month} {dd}, {yyyy}, {Weekday}')});//map('short');
   } else {
     return '';
   }
