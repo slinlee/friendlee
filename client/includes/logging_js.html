@@ -1,0 +1,13 @@
+<template name="loggingJS">
+    <script>
+        mixpanel.identify(Meteor.userId());
+        console.log ("recording id");
+        _cio.identify({
+            // Required attributes
+            id: Meteor.userId(),           // Unique id for the currently signed in user in your application.
+            email: '', // Email of the currently signed in user.
+            created_on: ''
+        });
+
+    </script>
+</template>
