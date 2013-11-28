@@ -21,6 +21,13 @@ Template.friendlist.selected_timeMet = function () {
   }
 };
 
+Template.friendlist.selected_timeMetTotal = function () {
+  var friend = Friends.findOne(Session.get("selected_friend"));
+  if (friend.datesmet.length > 0) {
+    return friend.datesmet.length;
+  }
+};
+
 Template.friendlist.selected_datesMet = function () {
   var friend = Friends.findOne(Session.get("selected_friend"));
   if (friend.datesmet.length > 0) {
