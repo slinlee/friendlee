@@ -10,9 +10,9 @@
 FriendNotes = new Meteor.Collection("friend_notes");
 
 FriendNotes.allow({
-    remove: function (userId, friend) {
+    remove: function (userId, friendNotes) {
         // You can remove friend notes
-        return friend.owner === userId;
+        return friendNotes.owner === userId;
     }
 });
 
