@@ -84,5 +84,9 @@ Template.friendlist.events({
         mixpanel.track("Removed Friend");
         Session.set("searchFilter", {});
       }, 2000);
+    },
+
+    'click i.backToTop' : function () {
+        $.scrollTo('body', 100);
     }
   });
