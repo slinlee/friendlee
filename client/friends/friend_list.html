@@ -30,6 +30,7 @@
                 <!-- Tab Panes -->
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="friendNotes">
+                        <button class="btn" data-toggle="modal" data-target="#newNoteModal"><i class="fa fa-plus"></i> Note</button>
                         <p>TODO: Fill me in with real data</p>
                     </div>
                     <div class="tab-pane fade" id="friendHistory">
@@ -49,4 +50,5 @@
             {{/unless}}
         </div>
     </div>
+    {{> newNoteModal}}
 </template>
