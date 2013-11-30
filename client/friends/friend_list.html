@@ -1,6 +1,6 @@
 <template name="friendlist">
     <div class="row">
-        <div class="friendlist span6">
+        <div class="friendlist col-md-6">
             {{#each friends}}
                 {{> friend}}
                 {{else}}
@@ -8,7 +8,7 @@
             {{/each}}
         </div>
 
-        <div class="span6">
+        <div class="col-md-6">
             {{#if selected_name}}
             <div class="details animated bounceInDown">
                 <div><p><span class="name animated bounce">{{selected_name}}</span> {{#if selected_timeMet}}<br><span class="lastmetmsg">You last met {{selected_timeMet}}{{/if}}</p></div>
@@ -17,7 +17,7 @@
                     <div class="btn-group">
                         <button class="btn btn-primary btn-large metToday"> Met Today</button>
                         <button class="btn btn-primary btn-large  datePickerBtn" data-date="">
-                            <i class="icon icon-large icon-calendar"></i> <i class="icon icon-chevron-down"></i></button>
+                            <i class="fa fa-large icon-calendar"></i> <i class="fa fa-chevron-down"></i></button>
 
                     </div>
                 </p>
@@ -28,13 +28,13 @@
                     {{/each}}
                 </div>
                 <div>
-                    <a class="muted remove"><i class="icon icon-trash"></i> Remove from list</a>
+                    <a class="muted remove"><i class="fa fa-trash"></i> Remove from list</a>
                 </div>
             </div>
             {{/if}}
 
             {{#unless selected_name}}
-            <div class="none"><i class="icon icon-arrow-left"></i> Who'd you meet today?</div>
+            <div class="none"><i class="fa fa-arrow-left"></i> Who'd you meet today?</div>
             {{/unless}}
         </div>
     </div>

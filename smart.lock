@@ -3,8 +3,7 @@
   "dependencies": {
     "basePackages": {
       "sugar": {},
-      "font-awesome": {},
-      "bootstrap-less": {}
+      "bootstrap3-less": {}
     },
     "packages": {
       "sugar": {
@@ -12,15 +11,10 @@
         "tag": "v0.0.9",
         "commit": "751a4465e0a7d7e4e800e794ca1e6a449e15e63d"
       },
-      "font-awesome": {
-        "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
-        "tag": "v3.2.1",
-        "commit": "38bdfff72dfb8857b272f9a9b056045d6a015489"
-      },
-      "bootstrap-less": {
-        "git": "https://github.com/inhji/meteor-bootstrap-less",
-        "tag": "v0.0.2",
-        "commit": "a04086b7f86f1d3e8f58ab801b37d08c40688693"
+      "bootstrap3-less": {
+        "git": "https://github.com/eprochasson/bootstrap3-less",
+        "tag": "v0.1.4",
+        "commit": "23ec918f8377b15b22cba33e13b717214235c88a"
       }
     }
   }

@@ -12,5 +12,8 @@ accounts-ui
 sugar
 # standard-app-packages
 accounts-google
-font-awesome
 # browser-policy
+bootstrap3-less
+iron-router
+paginated-subscription
+spin

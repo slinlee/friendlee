@@ -1,13 +1,13 @@
 <template name="header">
     <div class="row">
-        <div class="span9">
+        <div class="col-md-9">
             <h1 class="appTitle animated fadeIn">
-                <i class="icon icon-coffee sec"></i>
+                <i class="fa fa-coffee sec"></i>
                 <span class="title">Friend<span class="sec">Lee</span></span>
             </h1>
         </div>
 
-        <div class="span3">
+        <div class="col-md-3">
             {{#if currentUser}}
             {{loginButtons align="right"}}
             {{/if}}
