@@ -17,6 +17,7 @@ Template.newNoteModal.rendered = function () {
 Template.newNoteModal.events({
     'click button.saveNote': function () {
       Meteor.call('addFriendNote', Session.get("selected_friend"), Date.create('today'), $('#newNote').val());
+      mixpanel.track("Added Note");
       $('#newNoteModal').modal('hide');
     }
 });
