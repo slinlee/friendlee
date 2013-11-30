@@ -1,5 +1,6 @@
 // Friends = new Meteor.Collection("friends");
 Meteor.subscribe("friends");
+Meteor.subscribe("friend_notes");
 
 if (Meteor.isClient) {
   Meteor.startup(function () {

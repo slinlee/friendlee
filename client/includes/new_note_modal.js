@@ -1,4 +1,4 @@
-(function(){
+
 Template.newNoteModal.selected_name = function () {
     var friend = Friends.findOne(Session.get("selected_friend"));
     return friend && friend.name;
@@ -14,4 +14,9 @@ Template.newNoteModal.rendered = function () {
     })
 };
 
-}).call(this);
+Template.newNoteModal.events({
+    'click button.saveNote': function () {
+      Meteor.call('addFriendNote', Session.get("selected_friend"), Date.create('today'), $('#newNote').val());
+      $('#newNoteModal').modal('hide');
+    }
+});

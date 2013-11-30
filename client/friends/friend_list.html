@@ -31,7 +31,14 @@
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="friendNotes">
                         <button class="btn" data-toggle="modal" data-target="#newNoteModal"><i class="fa fa-plus"></i> Note</button>
-                        <p>TODO: Fill me in with real data</p>
+                        {{#if selected_friendNotes}}
+                            {{#each selected_friendNotes}}
+                            <p class="friendNote">{{this.note}}</p>
+                            <p class="noteDate">{{this.date}}</p>
+                            {{/each}}
+                        {{else}}
+                            <p>No notes. Add one today!</p>
+                        {{/if}}
                     </div>
                     <div class="tab-pane fade" id="friendHistory">
                         {{#each selected_datesMet}}

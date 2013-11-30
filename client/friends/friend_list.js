@@ -39,6 +39,16 @@ Template.friendlist.selected_datesMet = function () {
   }
 };
 
+Template.friendlist.selected_friendNotes = function() {
+  var friendId = Friends.findOne(Session.get("selected_friend"))._id;
+  var friendNotes = FriendNotes.findOne({ friend_id: friendId });
+  if (friendNotes) {
+    return friendNotes.notes;
+  } else {
+    return '';
+  }
+};
+
 Template.friendlist.rendered = function () {
   $('.datePickerBtn').datepicker('show')
   .on('changeDate', function (event) {
