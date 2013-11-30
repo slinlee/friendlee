@@ -87,6 +87,6 @@ Template.friendlist.events({
     },
 
     'click i.backToTop' : function () {
-        $.scrollTo('body', 100);
+        $.scrollTo('.title', 100);
     }
   });

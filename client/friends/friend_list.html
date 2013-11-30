@@ -12,7 +12,8 @@
             <a name="selectedFriend"></a>
             {{#if selected_name}}
             <div class="details animated bounceInDown">
-                <div><p><i class="fa fa-chevron-left visible-xs backToTop pull-left"></i><span class="name">{{selected_name}}</span> {{#if selected_timeMet}}<br><span class="lastmetmsg">You last met {{selected_timeMet}}{{/if}}</p></div>
+                <i class="fa fa-chevron-left visible-xs backToTop"> Back</i>
+                <div><p><span class="name">{{selected_name}}</span> {{#if selected_timeMet}}<br><span class="lastmetmsg">You last met {{selected_timeMet}}{{/if}}</p></div>
                 <!-- <p class="form-horizontal"><input type="date" name="dateMet" class="dateMetCal"> <input type="button" class="btn btn-primary met" value="Set date"></p> -->
                 <p>
                     <div class="btn-group">
