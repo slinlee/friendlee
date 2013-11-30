@@ -1,10 +1,14 @@
 <template name="search">
     <div class="row">
+        <div class="col-sm-6 col-xs-12 col-lg-6 col-md-6">
             <form class="form-inline" id="addfriend">
-                <div class="form-group col-md-4 col-xs-8">
+                <div class="input-group">
                     <input type="text" id="name" class="form-control input-lg" autocomplete="off"></input>
+                    <span class="input-group-btn">
+                        <input type="button" id="addfriendbtn" value="Add Friend" class="btn btn-lg btn-primary"></input>
+                    </span>
                 </div>
-                <input type="button" id="addfriendbtn" value="Add Friend" class="btn btn-lg btn-primary"></input>
             </form>
+        </div>
     </div>
 </template>
