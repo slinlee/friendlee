@@ -74,9 +74,13 @@
     }
 }
 
-.friend.selected {
-    background-color: lightblue;
-    box-shadow: 2px 2px 8px #CCC;
+.friend {
+    cursor: pointer; //Fix 'click' event bug on iPhone
+
+    &.selected {
+        background-color: lightblue;
+        box-shadow: 2px 2px 8px #CCC;
+    }
 }
 
 .details,
@@ -87,6 +91,7 @@
     font-size: 1.75em;
 
 }
+
 
 .details {
     .name {
