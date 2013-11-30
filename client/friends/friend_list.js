@@ -80,6 +80,7 @@ Template.friendlist.events({
     'click a.remove' : function () {
       $('.selected').addClass('animated hinge');
       var timeout = window.setTimeout(function () {
+        FriendNotes.remove(FriendNotes.findOne({ friend_id: Session.get("selected_friend") })._id);
         Friends.remove(Session.get("selected_friend"));
         mixpanel.track("Removed Friend");
         Session.set("searchFilter", {});
