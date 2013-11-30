@@ -43,7 +43,7 @@ Template.friendlist.selected_friendNotes = function() {
   var friendId = Friends.findOne(Session.get("selected_friend"))._id;
   var friendNotes = FriendNotes.findOne({ friend_id: friendId });
   if (friendNotes) {
-    return friendNotes.notes;
+    return friendNotes.notes.sort(function(a,b){return b.date-a.date}); // TODO: apply date formatting here
   } else {
     return '';
   }
