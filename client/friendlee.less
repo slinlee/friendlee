@@ -45,16 +45,16 @@
 }
 
 .appTitle {
-    font-size: 72pt;
+    font-size: 40pt;
     color: @brandMain;
-    letter-spacing: -10px;
+    letter-spacing: -4px;
     margin-bottom: 20px;
     .sec {
         color: @brandSecondary;
     }
 
     i {
-        margin-right: -13px;
+        margin-right: -10px;
     }
 
     .title {
@@ -62,10 +62,14 @@
         padding-bottom: 9px;
         vertical-align: middle;
     }
+    /* Medium devices (desktops, 992px and up) */
+    @media (min-width: @screen-md-min) {
+        font-size: 72pt;
+        letter-spacing: -8px;
 
-    .icon {
-        vertical-align: middle;
-        width: auto;
+        i {
+            margin-right: -18px;
+        }
     }
 }
 

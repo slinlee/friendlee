@@ -1,6 +1,6 @@
 <template name="friendlist">
     <div class="row">
-        <div class="friendlist col-md-6">
+        <div class="friendlist col-md-6 col-xs-12">
             {{#each friends}}
                 {{> friend}}
                 {{else}}
@@ -8,7 +8,7 @@
             {{/each}}
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 col-xs-12">
             {{#if selected_name}}
             <div class="details animated bounceInDown">
                 <div><p><span class="name animated bounce">{{selected_name}}</span> {{#if selected_timeMet}}<br><span class="lastmetmsg">You last met {{selected_timeMet}}{{/if}}</p></div>
