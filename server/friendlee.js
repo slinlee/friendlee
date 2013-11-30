@@ -15,3 +15,7 @@ if(Meteor.isServer) {
 Meteor.publish("friends", function() {
     return Friends.find({owner: this.userId});
 });
+
+Meteor.publish("friend_notes", function() {
+    return FriendNotes.find({owner: this.userId});
+});
