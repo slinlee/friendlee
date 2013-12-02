@@ -60,12 +60,12 @@ Template.friendlist.selected_friendNotesTotal = function() {
 };
 
 Template.friendlist.rendered = function () {
-  $('.datePickerBtn').datepicker('show')
-  .on('changeDate', function (event) {
+  $('.datePickerBtn').on('changeDate', function (event) {
     Meteor.call('meetFriend', Session.get("selected_friend"), Date.create(event.date.valueOf()));
     $.ajax({url: 'http://morecowbell.meteor.com/ding?user=gqaou7G5E526zCzqk'});
     mixpanel.track("Tracked met friend");
     Session.set("searchFilter", {});
+    $('.datePickerBtn').datepicker('hide');
   });
 };
 
@@ -100,5 +100,9 @@ Template.friendlist.events({
     'click i.backToTop' : function () {
         Session.set("selected_friend", null)
         $.scrollTo('.title', 100);
+    },
+
+    'click button.datePickerBtn' : function() {
+      $('.datePickerBtn').datepicker('show');
     }
   });
