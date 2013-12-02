@@ -69,6 +69,11 @@ Template.friendlist.rendered = function () {
   });
 };
 
+Template.friendlist.formattedDate = function() {
+  var date = new Date(this.date);
+  return date.format('{Month} {dd}, {yyyy}');
+};
+
 Template.friendlist.events({
     'click button.metToday': function () {
       // Friends.update(Session.get("selected_friend"), {$set: {timeMet: (new Date())}});
