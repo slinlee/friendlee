@@ -98,6 +98,7 @@ Template.friendlist.events({
     },
 
     'click i.backToTop' : function () {
+        Session.set("selected_friend", null)
         $.scrollTo('.title', 100);
     }
   });
