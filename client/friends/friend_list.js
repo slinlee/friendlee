@@ -65,7 +65,7 @@ Template.friendlist.rendered = function () {
     $.ajax({url: 'http://morecowbell.meteor.com/ding?user=gqaou7G5E526zCzqk'});
     mixpanel.track("Tracked met friend");
     Session.set("searchFilter", {});
-    $('.datePickerBtn').datepicker('hide');
+    //$('.datePickerBtn').datepicker('hide');
   });
 };
 
