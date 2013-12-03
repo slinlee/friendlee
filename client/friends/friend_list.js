@@ -103,7 +103,7 @@ Template.friendlist.events({
     },
 
     'click i.backToTop' : function () {
-        $.scrollTo('.title', 100);
+        $.scrollTo('.title', 50);
     },
 
     'click button.datePickerBtn' : function() {
