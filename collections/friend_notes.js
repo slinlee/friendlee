@@ -20,7 +20,7 @@ Meteor.methods({
 
     addFriendNote: function (friendId, date, note) {
 
-        if (! (FriendNotes.findOne( { $and: [ { owner: this.userId }, { friend_id: friendId } ] } ) ) ) {
+        if (! (FriendNotes.findOne( { friend_id: friendId } ))) {
             FriendNotes.insert({
             owner: this.userId,
             friend_id: friendId,
