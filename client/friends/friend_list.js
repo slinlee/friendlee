@@ -52,7 +52,7 @@ Template.friendlist.selected_avgBtwnMeeting = function () {
         if (interval > 1) {
             interval += " days";
         } else {
-            interval += " day";
+            interval = "day";
         }
         return interval;
     } else {
