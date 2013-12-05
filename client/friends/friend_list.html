@@ -13,7 +13,7 @@
             {{#if selected_name}}
             <div class="details"> <!-- animated bounceInDown -->
                 <i class="fa fa-chevron-left visible-xs backToTop"> Back</i>
-                <div><p><span class="name">{{selected_name}}</span> {{#if selected_timeMet}}<br><span class="lastmetmsg">You last met {{selected_timeMet}}{{/if}}</p></div>
+                <div><p><span class="name">{{selected_name}}</span> {{#if selected_timeMet}}<br><span class="lastmetmsg">You last met {{selected_timeMet}}{{/if}}{{#if selected_avgBtwnMeeting}}, avg every {{selected_avgBtwnMeeting}}{{/if}}</p></div>
                 <!-- <p class="form-horizontal"><input type="date" name="dateMet" class="dateMetCal"> <input type="button" class="btn btn-primary met" value="Set date"></p> -->
                 <p>
                     <div class="btn-group">

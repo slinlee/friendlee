@@ -39,6 +39,27 @@ Template.friendlist.selected_datesMet = function () {
   }
 };
 
+Template.friendlist.selected_avgBtwnMeeting = function () {
+    var friend = Friends.findOne(Session.get("selected_friend"));
+    var datesmetSorted;
+    var interval = 0;
+    if (friend.datesmet.length > 1) {
+        datesmetSorted = friend.datesmet.sort(function(a,b){return b-a});
+        for (var j = 0; j < datesmetSorted.length - 1; j++) {
+            interval += datesmetSorted[j] - datesmetSorted[j+1];
+        }
+        interval = (interval/(datesmetSorted.length-1)/(24 * 60 * 60 * 1000)).ceil();
+        if (interval > 1) {
+            interval += " days";
+        } else {
+            interval += " day";
+        }
+        return interval;
+    } else {
+        return false;
+    }
+}
+
 Template.friendlist.selected_friendNotes = function() {
   var friendId = Friends.findOne(Session.get("selected_friend"))._id;
   var friendNotes = FriendNotes.findOne({ friend_id: friendId });
