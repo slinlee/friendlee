@@ -16,3 +16,6 @@ accounts-google
 bootstrap3-less
 paginated-subscription
 spin
+standard-app-packages
+font-awesome
+iron-router
