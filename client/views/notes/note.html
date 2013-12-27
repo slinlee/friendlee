@@ -1,0 +1,7 @@
+<template name="note">
+    <blockquote class="friendNote">
+        <p class="friendNoteContent">{{this.note}}</p>
+        <small class="friendNoteDate">{{formattedDate}}</small>
+    </blockquote>
+    <a href="{{pathFor 'notesPage'}}" class="btn">Share</a>
+</template>

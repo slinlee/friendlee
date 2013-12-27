@@ -34,10 +34,7 @@
                         <button class="btn" data-toggle="modal" data-target="#newNoteModal"><i class="fa fa-plus"></i> Note</button>
                         {{#if selected_friendNotes}}
                             {{#each selected_friendNotes}}
-                            <blockquote class="friendNote">
-                                <p class="friendNoteContent">{{this.note}}</p>
-                                <small class="friendNoteDate">{{formattedDate}}</small>
-                            </blockquote>
+                                {{> note}}
                             {{/each}}
                         {{else}}
                             <p>No notes. Add one today!</p>

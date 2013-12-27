@@ -1,6 +1,6 @@
 // Friends = new Meteor.Collection("friends");
-// Meteor.subscribe("friends");
-Meteor.subscribe("friend_notes");
+// Meteor.subscribe("friends"); // Moved to router.js
+// Meteor.subscribe("friend_notes"); // Moved to router.js
 
 if (Meteor.isClient) {
   Meteor.startup(function () {
