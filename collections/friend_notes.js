@@ -19,14 +19,12 @@ FriendNotes.allow({
 Meteor.methods({
 
     addFriendNote: function (friendId, date, note) {
-
-        if (! (FriendNotes.findOne( { friend_id: friendId } ))) {
-            FriendNotes.insert({
+        FriendNotes.insert({
             owner: this.userId,
             friend_id: friendId,
-            notes: []
-            });
-        }
-        FriendNotes.update({ owner: this.userId, friend_id: friendId }, { $addToSet: {notes: {created_at: new Date().getTime(), date: date, note: note}}});
+            created_at: new Date().getTime(),
+            date: date,
+            note: note
+        });
     }
 })

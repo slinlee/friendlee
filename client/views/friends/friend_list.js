@@ -62,9 +62,9 @@ Template.friendlist.selected_avgBtwnMeeting = function () {
 
 Template.friendlist.selected_friendNotes = function() {
   var friendId = Friends.findOne(Session.get("selected_friend"))._id;
-  var friendNotes = FriendNotes.findOne({ friend_id: friendId });
+  var friendNotes = FriendNotes.find({ friend_id: friendId }).fetch();
   if (friendNotes) {
-    return friendNotes.notes.sort(function(a,b){return b.date-a.date}); // TODO: apply date formatting here
+    return friendNotes.sort(function(a,b){return b.date-a.date}); // TODO: apply date formatting here
   } else {
     return '';
   }
@@ -72,9 +72,9 @@ Template.friendlist.selected_friendNotes = function() {
 
 Template.friendlist.selected_friendNotesTotal = function() {
   var friendId = Friends.findOne(Session.get("selected_friend"))._id;
-  var friendNotes = FriendNotes.findOne({ friend_id: friendId });
+  var friendNotes = FriendNotes.find({ friend_id: friendId }).fetch();
   if (friendNotes) {
-    return friendNotes.notes.length;
+    return friendNotes.length;
   } else {
     return '';
   }
