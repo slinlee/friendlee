@@ -1,0 +1,10 @@
+<template name="friendlee">
+    {{#if currentUser }}
+    {{> search}}
+
+    {{> friendlist}}
+    {{> loggingJS}}
+    {{else}}
+    {{> anonymousIntro}}
+    {{/if}}
+</template>
