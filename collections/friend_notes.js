@@ -26,5 +26,10 @@ Meteor.methods({
             date: date,
             note: note
         });
+    },
+
+    // remove all friend notes for a friend when the friend is removed
+    removeFriendNotes: function(friendId) {
+        FriendNotes.remove({friend_id: friendId});
     }
 })
