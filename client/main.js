@@ -9,3 +9,5 @@ if (Meteor.isClient) {
   });
 
 }
+
+Meteor.AppCache.config({onlineOnly: ['/fonts/']});
