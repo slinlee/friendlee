@@ -19,3 +19,8 @@ Meteor.publish("friends", function() {
 Meteor.publish("friend_notes", function() {
     return FriendNotes.find({owner: this.userId});
 });
+
+Meteor.publish('friend_note_public', function(noteId) {
+  return FriendNotes.find({_id: noteId});
+});
+
