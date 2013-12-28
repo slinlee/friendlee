@@ -42,7 +42,7 @@
                     </div>
                     <div class="tab-pane fade" id="friendHistory">
                         {{#each selected_datesMet}}
-                        <p class="previousMeeting">{{this}}</p>
+                        <p class="previousMeeting">{{this.formattedDate}}<a class="removeDateMet"><i class="fa fa-times-circle"><span class="hidden">{{this.date}}</span></i></a></p>
                         {{/each}}
                     </div>
                 </div>

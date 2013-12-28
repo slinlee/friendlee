@@ -45,5 +45,13 @@ Meteor.methods({
         //if (! (typeof date === "date"))
          //   throw new Meteor.Error(400, "Required Parameter Missing");
         Friends.update(friendId, { $addToSet: {datesmet: date}});
+    },
+
+    removeDateMet: function (friendId, date) {
+        var friend = Friends.findOne(friendId);
+        if (! friend || friend.owner !== this.userId)
+            throw new Meteor.Error(404, "Friend not found");
+        // alert(date);
+        Friends.update(friendId, { $pull: {datesmet: date}});
     }
 })

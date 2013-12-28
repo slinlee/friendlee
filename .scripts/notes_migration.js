@@ -5,7 +5,11 @@
 *   mongo host:port/databasename -u username -p password .scripts/notes_migration.js
 */
 
-cursor = db.friend_notes2.find();
+// rename the existing collection
+db.friend_notes.renameCollection('friend_notes_old');
+
+// find and insert each note into the new collection
+cursor = db.friend_notes_old.find();
 while ( cursor.hasNext() ) {
    friend_note = cursor.next();
    friend_id = friend_note.friend_id;
