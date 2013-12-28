@@ -19,3 +19,5 @@ spin
 standard-app-packages
 font-awesome
 iron-router
+appcache
+spiderable
