@@ -2,13 +2,13 @@
     <blockquote class="friendNote">
         <p class="friendNoteContent">{{this.note}}</p>
         <small class="friendNoteDate">{{formattedDate}}</small>
-    </blockquote>
 
-    <a href="https://www.facebook.com/sharer/sharer.php?u={{urlFor 'notesPage'}}" target="_blank" class="btn btn-small">
-        <i class="fa fa-facebook-square"></i> Share
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{urlFor 'notesPage'}}" target="_blank" class="btn btn-mini">
+            <i class="fa fa-facebook-square"></i> Share
+        </a>
+        <a href="{{urlFor 'notesPage'}}" target="_top" class="btn btn-mini">
+            <i class="fa fa-link"></i> Link
     </a>
-    <a href="{{urlFor 'notesPage'}}" target="_top" class="btn btn-small">
-        <i class="fa fa-link"></i> Link
-    </a>
+    </blockquote>
 
 </template>
