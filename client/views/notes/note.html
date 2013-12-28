@@ -4,8 +4,11 @@
         <small class="friendNoteDate">{{formattedDate}}</small>
     </blockquote>
 
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffriendlee.meteor.com{{pathFor 'notesPage'}}" target="_blank" class="btn btn-small">
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{urlFor 'notesPage'}}" target="_blank" class="btn btn-small">
         <i class="fa fa-facebook-square"></i> Share
+    </a>
+    <a href="{{urlFor 'notesPage'}}" target="_top" class="btn btn-small">
+        <i class="fa fa-link"></i> Link
     </a>
 
 </template>
