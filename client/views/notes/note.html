@@ -1,7 +1,8 @@
 <template name="note">
     <blockquote class="friendNote">
         <p class="friendNoteContent">{{this.note}}</p>
-        <small class="friendNoteDate">{{formattedDate}}</small>
+        <small>{{#unless ownNote}}{{#if this.owner_name}}<span class="friendNoteAuthor">{{this.owner_name}}</span>,
+            {{/if}}{{/unless}}<span class="friendNoteDate">{{formattedDate}}</span></small>
 
         <a href="https://www.facebook.com/sharer/sharer.php?u={{urlFor 'notesPage'}}" target="_blank" class="btn btn-mini">
             <i class="fa fa-facebook-square"></i> Share

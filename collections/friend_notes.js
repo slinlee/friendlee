@@ -21,6 +21,7 @@ Meteor.methods({
     addFriendNote: function (friendId, date, note) {
         FriendNotes.insert({
             owner: this.userId,
+            owner_name: Meteor.users.findOne(this.userId).profile.name,
             friend_id: friendId,
             created_at: new Date().getTime(),
             date: date,

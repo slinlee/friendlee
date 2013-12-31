@@ -3,3 +3,8 @@ Template.note.formattedDate = function() {
   return date.format('{Month} {d}, {yyyy}');
 };
 
+Template.note.helpers({
+    ownNote: function() {
+        return this.owner == Meteor.userId();
+    }
+});
