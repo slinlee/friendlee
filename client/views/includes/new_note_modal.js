@@ -16,7 +16,7 @@ Template.newNoteModal.rendered = function () {
 };
 
 Template.newNoteModal.random_prompt = function () {
-    var name = Template.newNoteModal.selected_name();
+    var name = Template.newNoteModal.selected_name().split(" ")[0];
     var promptArray = [
         'One thing I appreciate about ' + name + ' is ',
         'Three words I would use to describe ' + name + ' are ',
@@ -24,7 +24,8 @@ Template.newNoteModal.random_prompt = function () {
         'If ' + name + ' were a cereal, they would be ',
         'If ' + name + ' was a fabric, they would be ',
         name + ' is really good at ',
-        'I wish I could be more like ' + name + ' in this way '
+        'I wish I could be more like ' + name + ' in this way ',
+        'If the world was ending tomorrow, I would tell ' + name + ' that '
     ]
 
     return promptArray[Math.floor(Math.random()*promptArray.length)];
