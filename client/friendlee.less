@@ -141,6 +141,11 @@
         font-weight: 100;
         &:hover .removeDateMet{
             display : inline;
+            color: lighten(@brandLink, 10%);
+
+            &:hover {
+                color: @brandLink;
+            }
         }
     }
 
@@ -151,16 +156,17 @@
     .friendNote {
         padding: 5px;
         margin-top: 4px;
+
+        small {
+            font-size: 0.6em;
+            line-height:0.8em;
+        }
     }
 
     .friendNoteContent {
         font-size: 0.7em;
     }
 
-    .friendNoteDate {
-        font-size: 0.6em;
-        line-height:0.8em;
-    }
 
     .removeDateMet {
         display: none;
@@ -168,7 +174,7 @@
         line-height: 0.9em;
         padding-left: 5px;
         &:hover {
-            color: #A00000
+            color: @brandLink;
         }
     }
 
