@@ -1,6 +1,7 @@
 Template.notesPage.helpers({
     noteMetaTags: function() {
-        $("meta[property='og:description']").attr("content", this.note);
+        var note = '&quot;' + this.note + '&quot -' + displayName(Meteor.user());
+        $("meta[property='og:description']").attr("content", note);
         return true;
     }
 });
