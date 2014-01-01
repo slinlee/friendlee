@@ -6,5 +6,9 @@ Template.notesPage.helpers({
         }
         $("meta[property='og:description']").attr("content", note);
         return true;
+    },
+
+    ownNote: function() {
+        return this.owner == Meteor.userId();
     }
 });
