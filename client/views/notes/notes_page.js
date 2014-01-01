@@ -1,7 +1,7 @@
 Template.notesPage.helpers({
     noteMetaTags: function() {
         var note = '&quot;' + this.note + '&quot;';
-        if (this.owner_name !== null) {
+        if (this.owner_name) {
             note += ' - ' + this.owner_name + ', ' + this.date.format('{Month} {d}, {yyyy}');
         }
         $("meta[property='og:description']").attr("content", note);
