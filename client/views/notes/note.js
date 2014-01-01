@@ -6,5 +6,11 @@ Template.note.formattedDate = function() {
 Template.note.helpers({
     ownNote: function() {
         return this.owner == Meteor.userId();
+    },
+
+    noteHashUrl: function() {
+        var url = '?k=';
+        url += this.note.hashCode();
+        return url;
     }
 });

@@ -4,10 +4,10 @@
         <small>{{#unless ownNote}}{{#if this.owner_name}}<span class="friendNoteAuthor">{{this.owner_name}}</span>,
             {{/if}}{{/unless}}<span class="friendNoteDate">{{formattedDate}}</span></small>
 
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{urlFor 'notesPage'}}" target="_blank" class="btn btn-mini">
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{urlFor 'notesPage'}}{{noteHashUrl}}" target="_blank" class="btn btn-mini">
             <i class="fa fa-facebook-square"></i> Share
         </a>
-        <a href="{{urlFor 'notesPage'}}" target="_top" class="btn btn-mini">
+        <a href="{{urlFor 'notesPage'}}{{noteHashUrl}}" target="_top" class="btn btn-mini">
             <i class="fa fa-link"></i> Link
     </a>
     </blockquote>
