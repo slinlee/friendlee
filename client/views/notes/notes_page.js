@@ -5,6 +5,7 @@ Template.notesPage.helpers({
             note += ' - ' + this.owner_name + ', ' + this.date.format('{Month} {d}, {yyyy}');
         }
         $("meta[property='og:description']").attr("content", note);
+        $("meta[property='robots']").attr("content", "noindex"); // Prevent Search engines from indexing notes <meta name="robots" content="noindex">
         return true;
     },
 
