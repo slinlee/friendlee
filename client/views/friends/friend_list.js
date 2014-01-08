@@ -45,10 +45,8 @@ Template.friendlist.selected_avgBtwnMeeting = function () {
     var interval = 0;
     if (friend.datesmet.length > 1) {
         datesmetSorted = friend.datesmet.sort(function(a,b){return b-a});
-        for (var j = 0; j < datesmetSorted.length - 1; j++) {
-            interval += datesmetSorted[j] - datesmetSorted[j+1];
-        }
-        interval = (interval/(datesmetSorted.length-1)/(24 * 60 * 60 * 1000)).ceil();
+        interval = (datesmetSorted.first() - datesmetSorted.last())/(datesmetSorted.length-1)/(24 * 60 * 60 * 1000);
+        interval = (interval * 10).round()/10;
         if (interval > 1) {
             interval += " days";
         } else {
@@ -133,9 +131,9 @@ Template.friendlist.events({
     'click .removeDateMet': function(e) {
       e.preventDefault();
       var date = new Date($(e.target).text());
-      Meteor.call('removeDateMet', Session.get('selected_friend'), date, function(error) { 
+      Meteor.call('removeDateMet', Session.get('selected_friend'), date, function(error) {
         if (error)
           return alert(error.reason);
       });
-    }    
+    }
   });
