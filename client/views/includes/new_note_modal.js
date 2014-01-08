@@ -22,6 +22,7 @@ Template.newNoteModal.random_prompt = function () {
         'Three words I would use to describe ' + name + ' are ',
         name + ' makes me smile when ',
         'If ' + name + ' were a cereal, they would be ',
+        'Being friends with ' + name + ' means ',
         'If ' + name + ' was a fabric, they would be ',
         name + ' is really good at ',
         'I wish I could be more like ' + name + ' in this way ',
