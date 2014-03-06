@@ -16,6 +16,10 @@ Meteor.publish("friends", function() {
     return Friends.find({owner: this.userId});
 });
 
+Meteor.publish('friend', function(friendId) {
+  return Friends.find({_id: friendId});
+});
+
 Meteor.publish("friend_notes", function() {
     return FriendNotes.find({owner: this.userId});
 });
@@ -23,4 +27,3 @@ Meteor.publish("friend_notes", function() {
 Meteor.publish('friend_note_public', function(noteId) {
   return FriendNotes.find({_id: noteId});
 });
-
