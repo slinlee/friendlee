@@ -1,4 +1,4 @@
-Template.isoTest.rendered = function () {
+Template.friendCards.rendered = function () {
   var friends = $('#iso-container').find(".friend-card");
   if (!$('#iso-container').hasClass("isotope")) {
         // Initialize isotope
@@ -23,7 +23,7 @@ Template.isoTest.rendered = function () {
   $('#iso-container').isotope('insert', $('#iso-container').find(".friend-card"));
 };
 
-Template.isoTest.helpers({
+Template.friendCards.helpers({
   friends: function () {
     return Friends.find();
   },
@@ -43,7 +43,7 @@ Template.isoTest.helpers({
 
 });
 
-Template.isoTest.events({
+Template.friendCards.events({
   'click .sort': function(e) {
     var directionIcon = $(e.target).find('i');
     var directionAsc = directionIcon.hasClass('fa-sort-asc');
