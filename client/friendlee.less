@@ -195,3 +195,75 @@ footer {
         color: @brandSecondary;
     }
 }
+
+/* isotest */
+.friend-card {
+  background: #38acb5;
+  margin: 5px;
+  width: 150px;
+  height: 150px;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  border-top-right-radius: 1.2em;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15); 
+  -webkit-transition: all 300ms 0ms;
+  -webkit-transition-delay: ease-in;
+  -moz-transition: all 300ms 0ms ease-in;
+  -o-transition: all 300ms 0ms ease-in;
+  transition: all 300ms 0ms ease-in;
+  -webkit-border-top-right-radius: 1.2em;
+  -moz-border-radius-topright: 1.2em;
+  &:hover {
+    cursor: pointer;
+    background: #2D8A91;
+  }
+  .initials {
+    left: 0.2em;
+    top: 0.6em;
+    font-size: 4.25em;
+    line-height: 1.0em;
+    color: #FFF;
+    position: absolute;
+  }
+  .name {
+    overflow: hidden;
+    left: 0.8em;
+    bottom: 0.8em;
+    font-size: 1.5em;
+    position: absolute;
+    max-height: 1.5em;
+  }
+  .datesmet {
+    right: 0.5em;
+    top: 0.5em;
+    font-size: 1.2em;
+    position: absolute;
+  }
+  .badge {
+    background-color: #ff3a6a;
+    opacity: 0.9;
+  }
+}
+.friend-card-small {
+    height: 120px;
+    width: 120px;
+    .initials {
+      font-size: 3.4em;
+    }
+    .name {
+      font-size: 1.2em;
+      max-height: 1.2em;
+    }    
+}
+.friend-card-large {
+    height: 180px;
+    width: 180px;
+    .initials {
+      font-size: 5.1em;
+    }
+    .name {
+      font-size: 1.8em;
+      max-height: 1.8em;
+    }   
+}

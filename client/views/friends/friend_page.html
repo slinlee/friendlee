@@ -1,0 +1,51 @@
+<template name="friendPage">
+  <div class="col-md-6 col-xs-12">
+      <a name="selectedFriend"></a>
+      {{#if selected_name}}
+      <div class="details"> <!-- animated bounceInDown -->
+          <i class="fa fa-chevron-left visible-xs backToTop"> Back</i>
+          <div><p><span class="name">{{selected_name}}</span> {{#if selected_timeMet}}<br><span class="lastmetmsg">You last met {{selected_timeMet}}{{/if}}{{#if selected_avgBtwnMeeting}}, avg every {{selected_avgBtwnMeeting}}{{/if}}</p></div>
+          <!-- <p class="form-horizontal"><input type="date" name="dateMet" class="dateMetCal"> <input type="button" class="btn btn-primary met" value="Set date"></p> -->
+          <p>
+              <div class="btn-group">
+                  <button class="btn btn-primary btn-large metToday"> Met Today</button>
+                  <button class="btn btn-primary btn-large  datePickerBtn" data-date="">
+                      <i class="fa fa-large fa-calendar"></i> <i class="fa fa-chevron-down"></i></button>
+
+              </div>
+          </p>
+          <!-- Nav Tabs -->
+          <ul class="nav nav-tabs">
+              <li class="active"><a href="#friendNotes" data-toggle="tab">Notes <span class="badge badge-info">{{selected_friendNotesTotal}}</a></li>
+              <li><a href="#friendHistory" data-toggle="tab">History <span class="badge badge-info">{{selected_timeMetTotal}}</span></a></li>
+          </ul>
+          <!-- Tab Panes -->
+          <div class="tab-content">
+              <div class="tab-pane fade in active" id="friendNotes">
+                  <button class="btn" data-toggle="modal" data-target="#newNoteModal"><i class="fa fa-plus"></i> Note</button>
+                  {{#if selected_friendNotes}}
+                      {{#each selected_friendNotes}}
+                          {{> note}}
+                      {{/each}}
+                  {{else}}
+                      <p>No notes. Add one today!</p>
+                  {{/if}}
+              </div>
+              <div class="tab-pane fade" id="friendHistory">
+                  {{#each selected_datesMet}}
+                  <p class="previousMeeting">{{this.formattedDate}}<a class="removeDateMet"><i class="fa fa-times-circle"><span class="hidden">{{this.date}}</span></i></a></p>
+                  {{/each}}
+              </div>
+          </div>
+          <div>
+              <a class="muted remove"><i class="fa fa-trash-o"></i> Remove from list</a>
+          </div>
+      </div>
+      {{> newNoteModal}}
+      {{/if}}
+
+      {{#unless selected_name}}
+      <div class="none"><i class="fa fa-arrow-left"></i> Who'd you meet today?</div>
+      {{/unless}}
+  </div>
+</template>

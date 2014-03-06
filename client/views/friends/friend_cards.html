@@ -1,0 +1,14 @@
+<template name="friendCards">
+  <button class="sort btn btn-primary active" data-sortby="lastmet">Last Met <i class="fa fa-sort-asc"/></button>
+  <button class="sort btn btn-primary" data-sortby="datesmet">Times Met <i class="fa fa-sort-asc"/></button>
+  <button class="sort btn btn-primary" data-sortby="name">Name <i class="fa fa-sort-asc"/></button>
+  <div id="iso-container" class="iso-container">
+    {{#each friends}}
+      <div class="friend-card {{cardSize this}}" data-lastmet="{{lastmet this}}" data-id="{{_id}}">
+        <div class="initials">{{getInitials name}}</div>
+        <div class="name">{{name}}</div>
+        <div class="datesmet badge">{{datesmet.length}}</div>
+      </div>
+    {{/each}}
+  </div>
+</template>
