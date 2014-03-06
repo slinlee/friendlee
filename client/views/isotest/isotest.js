@@ -46,7 +46,6 @@ Template.isoTest.events({
     var directionIcon = $(e.target).find('i');
     var directionAsc = directionIcon.hasClass('fa-sort-asc');
     var sortby = $(e.target).attr('data-sortby');
-    console.log(sortby);
     directionAsc ? 
       directionIcon.removeClass('fa-sort-asc').addClass('fa-sort-desc') :
       directionIcon.removeClass('fa-sort-desc').addClass('fa-sort-asc');
