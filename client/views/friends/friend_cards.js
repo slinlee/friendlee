@@ -3,7 +3,7 @@ Template.friendCards.rendered = function () {
   if (!$('#iso-container').hasClass("isotope")) {
         // Initialize isotope
         $('#iso-container').isotope({
-          layoutMode : 'fitRows',
+          layoutMode : 'masonry',
           itemSelector: '.friend-card',
           getSortData: {
             datesmet : function($elem) {
@@ -39,6 +39,17 @@ Template.friendCards.helpers({
 
   lastmet: function(friend) {
     return new Date(friend.datesmet[friend.datesmet.length - 1]).getTime()
+  },
+
+  cardSize: function(friend) {
+    var friendCardSpread = Session.get("friendCardSpread");
+    if (friendCardSpread) {
+      var datesmet = friend.datesmet.length;
+      if (datesmet < friendCardSpread) return "friend-card-small";
+      else if (datesmet < (friendCardSpread * 2)) return "";
+      else return "friend-card-large"
+    }
+    else return "";
   }
 
 });

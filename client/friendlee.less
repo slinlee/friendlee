@@ -200,8 +200,8 @@ footer {
 .friend-card {
   background: #38acb5;
   margin: 5px;
-  width: 140px;
-  height: 140px;
+  width: 150px;
+  height: 150px;
   float: left;
   overflow: hidden;
   position: relative;
@@ -221,16 +221,18 @@ footer {
   .initials {
     left: 0.2em;
     top: 0.6em;
-    font-size: 3.8em;
+    font-size: 4.25em;
     line-height: 1.0em;
     color: #FFF;
     position: absolute;
   }
   .name {
+    overflow: hidden;
     left: 0.8em;
-    bottom: 1.8em;
-    font-size: 1.2em;
+    bottom: 0.8em;
+    font-size: 1.5em;
     position: absolute;
+    max-height: 1.5em;
   }
   .datesmet {
     right: 0.5em;
@@ -242,4 +244,26 @@ footer {
     background-color: #ff3a6a;
     opacity: 0.9;
   }
+}
+.friend-card-small {
+    height: 120px;
+    width: 120px;
+    .initials {
+      font-size: 3.4em;
+    }
+    .name {
+      font-size: 1.2em;
+      max-height: 1.2em;
+    }    
+}
+.friend-card-large {
+    height: 180px;
+    width: 180px;
+    .initials {
+      font-size: 5.1em;
+    }
+    .name {
+      font-size: 1.8em;
+      max-height: 1.8em;
+    }   
 }
