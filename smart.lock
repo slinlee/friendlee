@@ -8,13 +8,13 @@
     "packages": {
       "sugar": {
         "git": "https://github.com/bevanhunt/meteor-sugar.git",
-        "tag": "v0.0.9",
-        "commit": "751a4465e0a7d7e4e800e794ca1e6a449e15e63d"
+        "tag": "v0.1.6",
+        "commit": "8973ed7e027e260a572571d02d0f4a428ca866f9"
       },
       "bootstrap3-less": {
         "git": "https://github.com/eprochasson/bootstrap3-less",
-        "tag": "v0.1.8",
-        "commit": "48b6db4435d9f01a1fcfe694a180b38e8e38835b"
+        "tag": "v0.1.9",
+        "commit": "5c812c4d7ce72917a065f0424c3cf54e5ff2d16a"
       }
     }
   }
