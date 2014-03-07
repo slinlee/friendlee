@@ -23,6 +23,15 @@ Template.friendCards.rendered = function () {
   $('#iso-container').isotope('insert', $('#iso-container').find(".friend-card"));
 };
 
+function toggleCardSize() {
+  console.log('toggleCardSize');
+  $('.friend-card').each(function() {
+    var size = $(this).attr('data-cardSize');
+    $(this).hasClass(size) ? $(this).removeClass(size) : $(this).addClass(size);
+  });
+  $('#iso-container').isotope('reLayout');
+};
+
 Template.friendCards.helpers({
   friends: function () {
     return Friends.find();
@@ -45,9 +54,9 @@ Template.friendCards.helpers({
     var friendCardSpread = Session.get("friendCardSpread");
     if (friendCardSpread) {
       var datesmet = friend.datesmet.length;
-      if (datesmet < friendCardSpread) return "friend-card-small";
-      else if (datesmet < (friendCardSpread * 2)) return "";
-      else return "friend-card-large"
+      if (datesmet < friendCardSpread) return "friend-card-sm";
+      else if (datesmet < (friendCardSpread * 2)) return "friend-card-md";
+      else return "friend-card-lg"
     }
     else return "";
   }
@@ -74,10 +83,15 @@ Template.friendCards.events({
     }); 
     $('#iso-container').isotope('reLayout');
   },
+
   'click .friend-card': function(e) {
     var friendId = $(e.target).closest('.friend-card').attr('data-id');
     // mixpanel.track("Selected Friend");
     Session.set("selected_friend", friendId);
     Router.go('friendPage', {_id: friendId});
+  },
+
+  'click #toggle-size': function(e) {
+    toggleCardSize();
   }
 });
