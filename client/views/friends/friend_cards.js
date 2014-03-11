@@ -69,12 +69,18 @@ Template.friendCards.events({
     var directionAsc = directionIcon.hasClass('fa-sort-asc');
     var sortby = $(e.target).attr('data-sortby');
     // set the new active sort button
-    $('.sort').removeClass('active');
+    $('.sort').each(function() {
+      $(this).removeClass('active');
+      if ($(this) != $(e.target))
+        $(this).find('i').removeClass('fa-sort-asc').removeClass('fa-sort-desc').addClass('fa-sort');
+      else
+        $(this).find('i').removeClass('fa-sort');  
+    });
     $(e.target).addClass('active');
     // replace arrow with the opposite direction
     directionAsc ? 
-      directionIcon.removeClass('fa-sort-asc').addClass('fa-sort-desc') :
-      directionIcon.removeClass('fa-sort-desc').addClass('fa-sort-asc');
+      directionIcon.addClass('fa-sort-desc') :
+      directionIcon.addClass('fa-sort-asc');
     $(e.target).blur();
     // sort the cards
     $('#iso-container').isotope({
