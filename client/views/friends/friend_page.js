@@ -115,8 +115,10 @@ Template.friendPage.events({
       }, 2000);
     },
 
-    'click i.backToTop' : function () {
-        $.scrollTo('.title', 50);
+    'click, tap i.backToTop' : function () {
+        $('html, body').animate({
+          scrollTop: $(document).find('.title').offset().top
+        }, 200);
     },
 
     'click button.datePickerBtn' : function() {

@@ -18,8 +18,10 @@ Template.friend.events({
   'click': function () {
     mixpanel.track("Selected Friend");
     Session.set("selected_friend", this._id);
-    $.scrollTo('a[name=selectedFriend]', 50);
-  }
+    $('html, body').animate({
+      scrollTop: $(document).find('a[name=selectedFriend]').offset().top
+    }, 200);
+  },
 });
 
 
